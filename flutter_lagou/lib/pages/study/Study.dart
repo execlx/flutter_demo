@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Study extends StatefulWidget {
-  const Study({Key? key}) : super(key: key);
+  const Study({super.key});
 
   @override
   _StudyState createState() => _StudyState();
@@ -10,6 +10,6 @@ class Study extends StatefulWidget {
 class _StudyState extends State<Study> {
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('学习内容'));
+    return Container(child: const Text('学习内容'));
   }
 }

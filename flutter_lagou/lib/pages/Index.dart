@@ -15,7 +15,7 @@ class TabItem {
 }
 
 class Index extends StatefulWidget {
-  const Index({Key? key}) : super(key: key);
+  const Index({super.key});
 
   @override
   _IndexState createState() => _IndexState();
