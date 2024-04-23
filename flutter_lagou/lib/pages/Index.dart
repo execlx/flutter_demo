@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lagou/pages/home/Home.dart';
 import 'package:flutter_lagou/pages/profile/Profile.dart';
 import 'package:flutter_lagou/pages/study/Study.dart';
+import 'package:flutter_lagou/providers/CurrentIndexProvider.dart';
+import 'package:provider/provider.dart';
 
 class TabItem {
   final BottomNavigationBarItem appBar;
@@ -45,10 +47,11 @@ class _IndexState extends State<Index> {
       page: Profile(),
     ),
   ];
-  int currentIndex = 0;
+  // int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    int curIndex = Provider.of<CurrentIndexProvider>(context).currentIndex;
     return Scaffold(
       appBar: AppBar(
         title: const Text('首页'),
@@ -56,18 +59,17 @@ class _IndexState extends State<Index> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: tabList.map((item) => item.appBar).toList(),
-        currentIndex: currentIndex,
+        currentIndex: curIndex,
         selectedItemColor: Colors.green,
         type: BottomNavigationBarType.fixed,
         onTap: (index) => {
           // 更新状态
-          setState(() {
-            currentIndex = index;
-          })
+          Provider.of<CurrentIndexProvider>(context, listen: false)
+              .setCurrentIndex(index),
         },
       ),
       body: Container(
-        child: tabList[currentIndex].page,
+        child: tabList[curIndex].page,
       ),
     );
   }
