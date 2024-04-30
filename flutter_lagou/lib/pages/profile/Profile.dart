@@ -19,7 +19,7 @@ class _ProfileState extends State<Profile> {
             onPressed: () {
               Global.router?.navigateTo(context, Routes.login);
             },
-            child: Text('跳转登录页')),
+            child: const Text('跳转登录页')),
         // ElevatedButton(onPressed: () {
         //   Navigator.pushNamed(context, '/register');
         // }, child: Text('跳转注册页')),

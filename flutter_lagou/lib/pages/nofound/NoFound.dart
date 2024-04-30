@@ -6,7 +6,7 @@ class NoFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('未知页面'),
+      child: const Text('未知页面'),
     );
   }
 }
